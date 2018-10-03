@@ -7,6 +7,8 @@ app.config.from_object('config.DevelopmentConfig')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+from models import User, Item
+
 
 @app.route('/')
 def hello():

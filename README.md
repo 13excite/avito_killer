@@ -13,7 +13,7 @@ pip install -r requirements.txt
 ```
 python manage.py db init
 ```
-## Запускаем инит
+## Запускаем миграцию
 ```
 python manage.py db migrate
 ```

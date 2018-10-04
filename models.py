@@ -14,7 +14,7 @@ class User(db.Model):
         self.email = email
 
     def __repr__(self):
-        return '<id {}>'.format(self.user_id)
+        return '<Uid {}>'.format(self.user_id)
 
 
 class Item(db.Model):
@@ -27,7 +27,7 @@ class Item(db.Model):
     address = db.Column(db.String(50))
     description = db.Column(db.String(255))
     breed = db.Column(db.String(40))
-    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __init__(self, title, start_date, img_url, price, address, description, breed, user_id):
         self.title = title
@@ -40,4 +40,4 @@ class Item(db.Model):
         self.user_id = user_id
 
     def __repr__(self):
-        return '<id {}>'.format(self.item_id)
+        return '<Iid {}>'.format(self.item_id)

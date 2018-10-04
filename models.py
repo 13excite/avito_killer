@@ -1,7 +1,5 @@
 from app import db
 from sqlalchemy.dialects.postgresql import JSON
-from sqlalchemy import func, ForeignKey
-from sqlalchemy.orm import relationship, backref,
 
 
 class User(db.Model):
@@ -9,7 +7,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     login = db.Column(db.String(20), unique=True)
     email = db.Column(db.String(120), unique=True)
-    items = relationship('Item', backref='user_info')
+    items = db.relationship('Item', backref='user_info')
 
     def __init__(self, login, email):
         self.login = login
@@ -23,14 +21,13 @@ class Item(db.Model):
     __tablename__ = 'items'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100))
-    start_date = db.Column(db.DateTime, default=func.now())
+    start_date = db.Column(db.DateTime, default=db.func.now())
     img_url = db.Column(db.String(50))
     price = db.Column(db.Float, nullable=True)
     address = db.Column(db.String(50))
     description = db.Column(db.String(255))
     breed = db.Column(db.String(40))
-    user_id = db.Column(db.Integer, ForeignKey('user.user_id'))
-    #user = relationship('User', backref='items')
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
 
     def __init__(self, title, start_date, img_url, price, address, description, breed, user_id):
         self.title = title

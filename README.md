@@ -3,6 +3,7 @@
 ## Запускаем венв
 ```
 python -m venv env
+source ./env/bin/activate
 ```
 ## Ставим зависимости
 ```

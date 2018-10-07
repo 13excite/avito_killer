@@ -5,11 +5,16 @@
     <title>Cats</title>
 </head>
 <body>
+    {% if errors %}
+        {% for error in errors %}
+            <h4>{{ error }}</h4>
+        {% endfor %}
+    {% endif %}
     <div>
-        {% for breed in breeds %}
+        {% for title_breed, translate_breed in breeds.items() %}
         <ul>
             <li>
-                <a href="items/d">{{breed}}</a>
+                <a href="items/{{ translate_breed }}?p=1">{{title_breed}}</a>
             </li>
         </ul>
         {% endfor %}

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import os
 
@@ -11,13 +11,16 @@ from models import User, Item
 
 
 @app.route('/')
-def hello():
-    return "Hellow world!"
+def main_index():
+    breed_list = []
+    for b in Item.query.with_entities(Item.breed).distinct().order_by(Item.breed):
+        breed_list.append(b.breed)
+    return render_template('index.html', breeds=breed_list)
 
 
-@app.route("/<name>")
-def hello_name(name):
-    return "Hello {}!".format(name)
+@app.route("/items/<number>", methods=['GET'])
+def hello_name(number):
+    return "Hello {}!".format(number)
 
 
 if __name__ == '__main__':

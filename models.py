@@ -22,12 +22,13 @@ class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100))
     start_date = db.Column(db.DateTime, default=db.func.now())
-    img_url = db.Column(db.String(50))
+    img_url = db.Column(db.String(70))
     price = db.Column(db.Float, nullable=True)
     address = db.Column(db.String(50))
-    description = db.Column(db.String(255))
+    description = db.Column(db.String(2000))
     breed = db.Column(db.String(40))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    translate_breed = db.Column(db.String(50))
 
     def __init__(self, title, start_date, img_url, price, address, description, breed, user_id):
         self.title = title

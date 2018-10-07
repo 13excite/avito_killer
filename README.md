@@ -3,6 +3,7 @@
 ## Запускаем венв
 ```
 python -m venv env
+source ./env/bin/activate
 ```
 ## Ставим зависимости
 ```
@@ -13,7 +14,7 @@ pip install -r requirements.txt
 ```
 python manage.py db init
 ```
-## Запускаем инит
+## Запускаем миграцию
 ```
 python manage.py db migrate
 ```

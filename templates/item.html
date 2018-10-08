@@ -9,8 +9,8 @@
     {% endif %}
     <div class="container">
     {% for id, data in ad_dicts.items() %}
-        <div class="">
-        <div class="item" class="{{ id }}">
+
+        <div class="items-view">
             <h3>{{ data['title'] }}</h3>
             <div class="price_addr">
                 <p class="price">{{ data['price'] }}</p>
@@ -25,7 +25,6 @@
             <div>
                 <p>{{ data['date'] }}</p>
             </div>
-        </div>
         </div>
     {% endfor %}
     </div>

@@ -31,7 +31,7 @@ def index_list(breed):
     except:
         page = 1
     try:
-        for q in Item.query.filter_by(translate_breed = breed).all():
+        for q in Item.query.filter_by(translate_breed=breed).all():
             items_dict[q.id] = {'title': q.title}
             items_dict[q.id].update({'price': q.price})
             items_dict[q.id].update({'breed': q.breed})

@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Items</title>
-    <div class="items-list">
+{% extends "base.html" %}
+
+{% block content %}
+<div class="items-list">
     {% if errors %}
         {% for error in errors %}
             <h4>{{ error }}</h4>
         {% endfor %}
     {% endif %}
-     {% for id, data in ad_dicts.items(): %}
+    {% for id, data in ad_dicts.items(): %}
         <div class="item" class="{{ id }}">
             <h3>{{ data['title'] }}</h3>
             <div class="price_addr">
@@ -26,10 +24,6 @@
                 <p>{{ data['date'] }}</p>
             </div>
         </div>
-      {% endfor %}
-    </div>
-</head>
-<body>
-
-</body>
-</html>
+    {% endfor %}
+</div>
+{% endblock %}

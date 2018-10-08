@@ -6,13 +6,16 @@
             <h4>{{ error }}</h4>
         {% endfor %}
     {% endif %}
+    <div class="container">
     <div class="row">
         {% for title_breed, translate_breed in breeds.items() %}
-            <ul class="col-sm-5 col-md-3">
-                <li>
+            <div class="col-sm-5 col-md-3">
+                <div>
                     <a href="items/{{ translate_breed }}?p=1">{{title_breed}}</a>
-                </li>
-            </ul>
+                </div>
+            </div>
+
         {% endfor %}
+    </div>
     </div>
 {% endblock %}

@@ -7,7 +7,8 @@
             <h4>{{ error }}</h4>
         {% endfor %}
     {% endif %}
-    {% for id, data in ad_dicts.items(): %}
+    <div class="container">
+    {% for id, data in ad_dicts.items() %}
         <div class="item" class="{{ id }}">
             <h3>{{ data['title'] }}</h3>
             <div class="price_addr">
@@ -25,5 +26,6 @@
             </div>
         </div>
     {% endfor %}
+    </div>
 </div>
 {% endblock %}

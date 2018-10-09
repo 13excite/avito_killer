@@ -1,32 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="items-list">
-    {% if errors %}
-        {% for error in errors %}
-            <h4>{{ error }}</h4>
-        {% endfor %}
-    {% endif %}
     <div class="container">
-    {% for id, data in ad_dicts.items() %}
+            {% for item in items %}
+                 <div class="items-view">
+                    <h3>{{ item.title }}</h3>
+                    <div class="price_addr">
+                        <p class="price">{{ item.price }}</p>
+                        <p class="address">{{ item.address }}</p>
+                    </div>
+                    <div class="breed">
+                        <p>{{ item.breed }}</p>
+                    </div>
+                    <div class="description">
+                        <p>{{ item.description }}</p>
+                    </div>
+                    <div>
+                        <p>{{ item.start_date }}</p>
+                    </div>
+                </div>
+            {% endfor %}
 
-        <div class="items-view">
-            <h3>{{ data['title'] }}</h3>
-            <div class="price_addr">
-                <p class="price">{{ data['price'] }}</p>
-                <p class="address">{{ data['address'] }}</p>
-            </div>
-            <div class="breed">
-                <p>{{ data['breed'] }}</p>
-            </div>
-            <div class="description">
-                <p>{{ data['desc'] }}</p>
-            </div>
-            <div>
-                <p>{{ data['date'] }}</p>
-            </div>
-        </div>
-    {% endfor %}
+      {{ pagination.links }}
     </div>
-</div>
-{% endblock %}
+{%  endblock %}

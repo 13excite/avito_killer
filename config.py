@@ -11,7 +11,7 @@ class Config(object):
     CSRF_ENABLED = True
     SECRET_KEY = '123456'
     SQLALCHEMY_DATABASE_URI = DATABASE_URL
-    PAGE_ON_VIEWS = 20
+    PAGES_ON_VIEW = 20
 
 
 class ProductionConfig(Config):

@@ -23,17 +23,17 @@ def main_index():
     return render_template('index.html', breeds=breed_disct, errors=errors)
 
 
-def get_items_per_page(items_result, offset=0, per_page=10):
+def get_items_per_page(items_result, offset=0, per_page=app.config['PAGES_ON_VIEW']):
     """
     :param items_result: result of select db
     :param offset: from 0 by default
-    :param per_page: show item on page, default = 10
+    :param per_page: show item on page, default from config.py value PAGE_ON_VIEWS
     :return: slice of select result
     """
     return items_result[offset: offset + per_page]
 
 
-@app.route("/items/<breed>/", methods=['GET'])
+@app.route('/items/<breed>/', methods=['GET'])
 def index_list(breed):
     errors = []
     try:

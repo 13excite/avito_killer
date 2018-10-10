@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_paginate import Pagination, get_page_args
+from forms import LoginForm
 import os
 
 app = Flask(__name__)
@@ -56,6 +57,24 @@ def index_list(breed):
         print(err)
         errors.append("Couldn't get results.")
         return render_template('error.html', errors=errors)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        flash('Login requested for user {}, remember_me={}'.format(
+            form.username.data, form.remember_me.data))
+        return redirect(url_for('login'))
+    return render_template('login.html', title='Sign In', form=form)
+
+
+@app.route('/iteminfo', methods=['GET'])
+def itedm_info():
+    try:
+        id = request.args.get('id', default=1, type=int)
+    except:
+        id = 1
+    pass
 
 
 if __name__ == '__main__':
